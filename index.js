@@ -24,12 +24,7 @@ mongoose
 .then(()=>{
     console.log("Connected to DB");
 })
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, (err)=>{
-    err ? console.log(err) : console.log(`Server is listening on port ${PORT}`);
-})
-
+.catch(err => console.log(err));
 
 
 app.use('/users', userRouter);
@@ -37,3 +32,10 @@ app.use('/maps', mapRouter);
 app.get('/', (req, res, next)=>{
   res.send('Welcome');
 });
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, (err)=>{
+    err ? console.log(err) : console.log(`Server is listening on port ${PORT}`);
+})
+
+
